@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>button_game</title>
+	<style type="text/css">
+button{
+	padding: 0;
+	margin: 0;
+	position: fixed;
+	transition: all 0.5s;
+}
+body{
+	height: 100vh;
+}
+	</style>
+</head>
+<body>
+<button id="btn">click me!</button>
+</body>
+<script type="text/javascript">
+	var btn = document.getElementById("btn");
+	var withWind = document.body.offsetWidth - btn.offsetWidth;
+	var heightWind = document.body.offsetHeight - btn.offsetHeight;
+	
+	function changePosition(){
+		btn.style.left = ~~(Math.random()*withWind)+ "px";
+		btn.style.top = ~~(Math.random()*heightWind)+ "px";
+	}
+
+	window.onload = function(){
+		btn.addEventListener('click', mouseTake);
+	};
+
+	function mouseTake(){
+		changePosition();
+		btn.addEventListener('mouseover', changePosition);
+	};
+
+</script>
+</html>
